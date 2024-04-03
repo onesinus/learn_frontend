@@ -9,6 +9,8 @@ const Register = () => {
     username: '',
     password: ''
   });
+  const [error, setError] = useState('');
+
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,13 +18,18 @@ const Register = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log(formData)
     try {
-      // Make API request to register new user
-      const response = await axios.post('http://localhost:3000/register', formData);
-      console.log(response.data); // Log response from the server
-      navigate('/login'); // Navigate to login page after successful registration
+      const response = await axios.post('http://localhost:3001/register', formData);
+      console.log(response.data);
+      if (response.status === 201) {
+        navigate('/login');
+      } else {
+        setError('Registration failed. Please try again.');
+      }
     } catch (error) {
       console.error('Error registering user:', error);
+      setError('Registration failed. Please try again. Error:' + error);
     }
   };
 
@@ -32,6 +39,7 @@ const Register = () => {
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Register</h2>
         </div>
+        {error && <p className="text-red-500 text-center">{error}</p>}
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
