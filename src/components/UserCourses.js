@@ -14,6 +14,7 @@ const UserCourseList = () => {
       }
     })
     .then(response => {
+      console.log(response.data)
       setUserCourses(response.data);
     })
     .catch(error => {
@@ -40,11 +41,11 @@ const UserCourseList = () => {
             </tr>
           </thead>
           <tbody>
-            {userCourses.map(userCourse => (
+            {userCourses && userCourses.map(userCourse => (
               <tr key={userCourse._id}>
-                <td className="py-2 px-4 border border-gray-200">{userCourse.course_id._id}</td>
-                <td className="py-2 px-4 border border-gray-200">{userCourse.course_id.name}</td>
-                <td className="py-2 px-4 border border-gray-200">{userCourse.course_id.price}</td>
+                <td className="py-2 px-4 border border-gray-200">{userCourse.course_id && userCourse.course_id._id}</td>
+                <td className="py-2 px-4 border border-gray-200">{userCourse.course_id && userCourse.course_id.name}</td>
+                <td className="py-2 px-4 border border-gray-200">{userCourse.course_id && userCourse.course_id.price}</td>
                 <td className="py-2 px-4 border border-gray-200">{userCourse.enroll_date}</td>
                 <td className="py-2 px-4 border border-gray-200">
                   {/* Optionally, you can add a button to view course details */}
