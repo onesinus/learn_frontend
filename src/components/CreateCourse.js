@@ -5,7 +5,7 @@ import Header from './Header';
 
 const CreateCourse = () => {
   const [name, setName] = useState('');
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = e => {

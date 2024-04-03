@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from '../axiosConfig'; 
 import { Link } from 'react-router-dom';
 import Header from './Header';
+import DeleteCourse from './DeleteCourse';
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
@@ -19,21 +20,6 @@ const CourseList = () => {
       console.error('Error fetching courses:', error);
     });
   }, []);
-
-  const handleDelete = courseId => {
-    axios.delete(`/courses/${courseId}`, {
-      headers: {
-        authorization: localStorage.getItem('token')
-      }
-    })
-    .then(response => {
-      console.log('Course deleted successfully:', response.data);
-      setCourses(courses.filter(course => course._id !== courseId));
-    })
-    .catch(error => {
-      console.error('Error deleting course:', error);
-    });
-  };
 
   return (
     <>
@@ -62,7 +48,11 @@ const CourseList = () => {
                 <td className="py-2 px-4 border border-gray-200">{course.price}</td>
                 <td className="py-2 px-4 border border-gray-200">
                   <Link to={`/courses/${course._id}/edit`} className="text-blue-500 hover:text-blue-700 mr-2">Edit</Link>
-                  <button onClick={() => handleDelete(course._id)} className="text-red-500 hover:text-red-700">Delete</button>
+                  <DeleteCourse 
+                    courseId={course._id} 
+                    setCourses={setCourses} 
+                    courses={courses}                
+                  />
                 </td>
               </tr>
             ))}
