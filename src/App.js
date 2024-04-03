@@ -7,7 +7,7 @@ import CourseList from './components/CourseList';
 import CreateCourse from './components/CreateCourse';
 import EditCourse from './components/UpdateCourse'; 
 import UserList from './components/UserList';
-// import CreateUser from './components/CreateUser';
+import CreateUser from './components/CreateUser';
 // import EditUser from './components/UpdateUser'; 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Route path="/add-course" element={<CreateCourse />} />
         <Route path="/courses/:id/edit" element={<EditCourse />} />
         <Route path="/users" element={<UserList />} />
-        {/* <Route path="/add-user" element={<CreateUser />} />  */}
+        <Route path="/add-user" element={<CreateUser />} />
         {/* <Route path="/users/:id/edit" element={<EditUser />} */}
       </Routes>
     </Router>
