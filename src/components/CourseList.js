@@ -50,6 +50,7 @@ const CourseList = () => {
             <tr>
               <th className="py-2 px-4 border border-gray-200">ID</th>
               <th className="py-2 px-4 border border-gray-200">Name</th>
+              <th className="py-2 px-4 border border-gray-200">Price</th>
               <th className="py-2 px-4 border border-gray-200">Actions</th>
             </tr>
           </thead>
@@ -58,6 +59,7 @@ const CourseList = () => {
               <tr key={course._id}>
                 <td className="py-2 px-4 border border-gray-200">{course._id}</td>
                 <td className="py-2 px-4 border border-gray-200">{course.name}</td>
+                <td className="py-2 px-4 border border-gray-200">{course.price}</td>
                 <td className="py-2 px-4 border border-gray-200">
                   <Link to={`/courses/${course._id}/edit`} className="text-blue-500 hover:text-blue-700 mr-2">Edit</Link>
                   <button onClick={() => handleDelete(course._id)} className="text-red-500 hover:text-red-700">Delete</button>
