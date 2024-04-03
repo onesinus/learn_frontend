@@ -1,20 +1,16 @@
 // src/components/Home.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Header from './Header';
 
 const Home = () => {
   return (
-    <div className="bg-gray-200 h-screen flex flex-col justify-center items-center">
-      <h1 className="text-4xl font-bold mb-8">Welcome to Your App!</h1>
-      <nav className="flex justify-center space-x-4">
-        <Link to="/register" className="text-blue-500 hover:text-blue-700">
-          Register
-        </Link>
-        <Link to="/login" className="text-blue-500 hover:text-blue-700">
-          Login
-        </Link>
-      </nav>
-    </div>
+    <>
+      <Header />
+      <div className="container mx-auto py-8">
+        <h1 className="text-4xl font-bold text-center mb-8">Welcome to Your App!</h1>
+        <p className="text-lg text-gray-700 text-center">Start your journey by registering or logging in.</p>
+      </div>
+    </>
   );
 };
 
