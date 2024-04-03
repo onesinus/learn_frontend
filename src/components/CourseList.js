@@ -7,7 +7,7 @@ const CourseList = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/courses', {
+    axios.get('http://localhost:3001/courses', {
       headers: {
         authorization: localStorage.getItem('token')
       }

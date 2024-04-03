@@ -1,9 +1,11 @@
 // src/components/Header.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -17,6 +19,7 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
+    navigate('/');
   };
 
   return (

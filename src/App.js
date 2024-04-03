@@ -4,6 +4,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home'; // Assuming you have a Home component for the "/" route
 import Course from './components/CourseList';
+import AddCourse from './components/CreateCourse';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/courses" element={<Course />} />
+        <Route path="/add-course" element={<AddCourse />} />
       </Routes>
     </Router>
   );
