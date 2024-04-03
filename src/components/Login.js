@@ -23,6 +23,7 @@ const Login = () => {
       console.log(response.data);
       if (response.status === 200) {
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('username', formData.username);
 
         // Handle successful login
         navigate('/courses');

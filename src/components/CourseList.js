@@ -21,6 +21,23 @@ const CourseList = () => {
     });
   }, []);
 
+  const handleEnroll = (course_id) => {
+    axios.post('/user-courses', { course_id: course_id }, {
+      headers: {
+        authorization: localStorage.getItem('token')
+      }
+    })
+    .then(response => {
+      console.log('User enrolled in course successfully:', response.data);
+      // Optionally, you can update the UI to reflect enrollment
+      alert('You have enrolled in the course successfully!');
+    })
+    .catch(error => {
+      console.error('Error enrolling user in course:', error);
+      alert('Failed to enroll in the course. Please try again.');
+    });
+  };
+
   return (
     <>
       <Header/>
@@ -53,6 +70,9 @@ const CourseList = () => {
                     setCourses={setCourses} 
                     courses={courses}                
                   />
+                  <button onClick={() => handleEnroll(course._id)} className="text-green-500 hover:text-green-700 mr-2">
+                    Enroll
+                  </button>
                 </td>
               </tr>
             ))}

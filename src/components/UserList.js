@@ -46,6 +46,7 @@ const UserList = () => {
                 <td className="py-2 px-4 border border-gray-200">{user._id}</td>
                 <td className="py-2 px-4 border border-gray-200">{user.username}</td>
                 <td className="py-2 px-4 border border-gray-200">
+                  <Link to={`/user-courses/${user._id}`} className="text-blue-500 hover:text-blue-700 mr-2">User Courses</Link>
                   {/* Pass user._id to DeleteUser component */}
                    {/*<DeleteUser userId={user._id} setUsers={setUsers} />*/}
                 </td>

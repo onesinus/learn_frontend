@@ -8,7 +8,7 @@ import CreateCourse from './components/CreateCourse';
 import EditCourse from './components/UpdateCourse'; 
 import UserList from './components/UserList';
 import CreateUser from './components/CreateUser';
-// import EditUser from './components/UpdateUser'; 
+import UserCourses from './components/UserCourses'; 
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
         <Route path="/courses/:id/edit" element={<EditCourse />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/add-user" element={<CreateUser />} />
+        <Route path="/user-courses/:user_id" element={<UserCourses />} />
         {/* <Route path="/users/:id/edit" element={<EditUser />} */}
       </Routes>
     </Router>
