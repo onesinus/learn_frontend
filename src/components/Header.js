@@ -48,6 +48,10 @@ const Header = () => {
                   <Link to="/courses" className="hover:text-blue-300">Courses</Link>
                 </li>
                 <li>
+                  <Link to="/users" className="hover:text-blue-300">Users</Link>
+                </li>
+
+                <li>
                   <button onClick={handleLogout} className="hover:text-blue-300">Logout</button>
                 </li>
               </>
