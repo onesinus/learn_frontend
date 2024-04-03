@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../axiosConfig'; 
 import { Link } from 'react-router-dom';
 import Header from './Header';
 
@@ -7,7 +7,7 @@ const CourseList = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/courses', {
+    axios.get('/courses', {
       headers: {
         authorization: localStorage.getItem('token')
       }
@@ -21,7 +21,7 @@ const CourseList = () => {
   }, []);
 
   const handleDelete = courseId => {
-    axios.delete(`http://localhost:3000/courses/${courseId}`, {
+    axios.delete(`/courses/${courseId}`, {
       headers: {
         authorization: localStorage.getItem('token')
       }

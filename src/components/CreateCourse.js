@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../axiosConfig'; 
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 
@@ -10,7 +10,7 @@ const CreateCourse = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post('http://localhost:3001/courses', { name, price }, {
+    axios.post('/courses', { name, price }, {
       headers: {
         'authorization': localStorage.getItem('token')
       }

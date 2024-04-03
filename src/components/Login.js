@@ -1,7 +1,7 @@
 // src/components/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../axiosConfig'; 
 import Header from './Header';
 
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/login', formData);
+      const response = await axios.post('/login', formData);
       console.log(response.data);
       if (response.status === 200) {
         localStorage.setItem('token', response.data.token);

@@ -1,7 +1,7 @@
 // src/components/Register.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../axiosConfig'; 
 
 import Header from './Header';
 
@@ -22,7 +22,7 @@ const Register = () => {
     e.preventDefault();
     console.log(formData)
     try {
-      const response = await axios.post('http://localhost:3001/register', formData);
+      const response = await axios.post('/register', formData);
       console.log(response.data);
       if (response.status === 201) {
         navigate('/login');
